@@ -53,28 +53,52 @@ class userinfo {
         return html::createLink("/userinfo/edit/$user_id", 'Edit profile');
     }
     
+    public static $preText = null;
+    public function setPreText ($text) {
+        self::$preText = $text;
+    } 
+    
+    public function getPreText() {
+        if (!self::$preText) {
+            return lang::translate('Submitted by: ');
+        }
+        return self::$preText;
+    }
+    
     /**
      * 
      * @param array $user or account row
      *              $user[id] = 0 if anonymous submission
      * @return string $str html profile 
      */
-    public function getProfile ($user) {
+    public function getProfile ($user, $text = '') {
         
         $str = '';
-        $str.= lang::translate('Submitted by: ');
-        $info = $this->get($user['id']);
+        $str.= $this->getPreText();        
+        $str.= $this->getProfileLink($user['id']);
+        $str.= " ($text)";
+        return $str;
+        
+    }
+    
+    /**
+     * get profile link
+     * @param int $user_ud
+     * @return string $html
+     */
+    public function getProfileLink ($user_id) {
+        $str = '';
+        $info = $this->get($user_id);
         if (empty($info)) {           
             $str.= 
-                    html::createLink("/userinfo/view/$user[id]", 
-                            lang::translate('User') . " $user[id]");
+                    html::createLink("/userinfo/view/$user_id", 
+                            lang::translate('User') . " $user_id");
         } else {
             $str.= 
-                    html::createLink("/userinfo/view/$user[id]", 
+                    html::createLink("/userinfo/view/$user_id", 
                             html::specialEncode($info['screenname']));
         }
         return $str;
-        
     }
     
     /**
@@ -309,3 +333,5 @@ class userinfo {
         echo $f->getStr();
     }
 }
+
+class userinfo_module extends userinfo {}
