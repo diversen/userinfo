@@ -71,7 +71,7 @@ class userinfo {
      *              $user[id] = 0 if anonymous submission
      * @return string $str html profile 
      */
-    public function getProfile ($user, $text = '') {
+    public function getProfile ($user, $text = '', $options = array ()) {
         
         $str = '';
         $str.= $this->getPreText();        
