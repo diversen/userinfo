@@ -6,6 +6,10 @@ use diversen\valid;
 
 class userinfo {
     
+    public function __construct () { 
+        template_assets::setInlineCss(config::getModulePath('userinfo') . "/assets.css");
+    }
+    
     /**
      * get logout html
      * @return string $html
@@ -26,7 +30,7 @@ class userinfo {
             $str.= lang::translate('Your screenname is: ');
             $str.= html::specialEncode($user_info['screenname']);
         }
-        $str.= "<br />" . $this->getProfileEditLink() . "<br />";
+        $str.= "" . $this->getProfileEditLink() . "<br />";
         $str.= "<hr />";
         
         $logout = lang::translate('Logout');
@@ -74,11 +78,12 @@ class userinfo {
     public function getProfile ($user, $text = '', $options = array ()) {
         
         $str = '';
+        $str.= '<div class="userinfo"> '; 
         $str.= $this->getPreText();        
         $str.= $this->getProfileLink($user['id']);
         $str.= " ($text)";
+        $str.= '</div>';
         return $str;
-        
     }
     
     /**
@@ -132,8 +137,15 @@ class userinfo {
         }
         
         $str.= $this->getHtml($account, $info);
+        $str.= $this->getAdminLink($account['id']);
         echo $str;
 
+    }
+    
+    public function getAdminLink ($user_id) {
+        if (session::isAdmin()) {
+            return html::createLink("/account/admin/edit/$user_id", "Admin: Edit");
+        }
     }
     
     /**
