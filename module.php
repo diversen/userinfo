@@ -29,7 +29,7 @@ class userinfo {
             $str.= lang::translate('Your screenname is not set yet');
         } else {
             $str.= lang::translate('Your screenname is: ');
-            $str.= html::specialEncode($info['screenname']);
+
         }
         //$str.= "" . $this->getProfileLink($) . "<br />";
         $str.= "<br /> " . $this->getLink($user_id);
