@@ -17,20 +17,22 @@ class userinfo {
     public function getLogoutHTML () {
 
         $user_id = session::getUserId();
-        $account = user::getAccount($user_id);
+        $user = user::getAccount($user_id);
         
-        $user_info = $this->get($user_id);
+        $info = $this->get($user_id);
+        
         $str = '';
         $str.= lang::translate('You are logged in using email: ');
-        $str.= $account['email'] . "<br />";
+        $str.= $user['email'] . "<br />";
         
-        if (empty($user_info)) {
+        if (empty($info)) {
             $str.= lang::translate('Your screenname is not set yet');
         } else {
             $str.= lang::translate('Your screenname is: ');
-            $str.= html::specialEncode($user_info['screenname']);
+            $str.= html::specialEncode($info['screenname']);
         }
-        $str.= "" . $this->getProfileEditLink() . "<br />";
+        //$str.= "" . $this->getProfileLink($) . "<br />";
+        $str.= "<br /> " . $this->getLink($user_id);
         $str.= "<hr />";
         
         $logout = lang::translate('Logout');
@@ -71,27 +73,41 @@ class userinfo {
     
     /**
      * 
-     * @param array $user or account row
+     * get profile link from account array with text and link
+     * @param array $account
      *              $user[id] = 0 if anonymous submission
+     * @param string $text text to notice smething about the user
+     * @param array $options
      * @return string $str html profile 
      */
-    public function getProfile ($user, $text = '', $options = array ()) {
+    public function getProfile ($account, $text = '', $options = array ()) {
         
         $str = '';
         $str.= '<div class="userinfo"> '; 
         $str.= $this->getPreText();        
-        $str.= $this->getProfileLink($user['id']);
+        $str.= $this->getLink($account['id']);
         $str.= " ($text)";
         $str.= '</div>';
         return $str;
     }
     
     /**
-     * get profile link
-     * @param int $user_ud
-     * @return string $html
+     * get profile link without text from account array
+     * @param type $account
+     * @return type
      */
-    public function getProfileLink ($user_id) {
+    public function getProfileLink ($account) {
+        $link = $this->getLink($account['id']);
+        return '<div class="userinfo">' . $link . '</div>';
+    }
+    
+    /**
+     * get profile link
+     * @param array $account
+     * @return string $html 
+     */
+    public function getLink ($user_id) {
+
         $str = '';
         $info = $this->get($user_id);
         if (empty($info)) {           
