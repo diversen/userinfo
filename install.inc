@@ -8,7 +8,8 @@ $_INSTALL['MAIN_MENU_ITEM'] = array (
     'url' => '/userinfo/index',
     'module_name' => 'userinfo',
     'parent' => 0,
-    'weight' => 2
+    'weight' => 2,
+    'auth' => 'user'
 );
 
 // This sets the public clone URL
