@@ -130,19 +130,23 @@ class userinfo {
         
         $user_id = uri::fragment(2);
         $info = $this->get($user_id);
+        
         $account = user::getAccount($user_id);
         if (empty($account)) {
             moduleloader::setStatus(404);
             return;
         }
         
-        $title = lang::translate('Profile page ');
-        $title.= $account['id'];
-        template::setTitle($title);
+        
         
         if (empty($info)) {
             $info = $this->getDefaultInfo();
         }
+        
+        $title = lang::translate('Profile page ');
+        $title.= $info['id'] . " ($info[screenname])";
+        template::setTitle($title);
+        
 
         $str = '';
         $str.= html::getHeadline('Profile');
@@ -190,6 +194,8 @@ class userinfo {
             return;
         }
         
+        template_meta::setMetaAll(lang::translate('Your profile'));
+        
         $str.=$this->getProfileEditLink() . "<br />";
         $account = user::getAccount($id);
         $info = $this->get($id);
@@ -212,6 +218,7 @@ class userinfo {
      */
     public function getHtml ($account, $info) {
         
+        $info = html::specialEncode($info);
         $str = '';
         $str.= "<table class=\"account_profile\">";
         $str.= "<tr><td rowspan =\"3\">";
