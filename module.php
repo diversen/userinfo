@@ -144,7 +144,7 @@ class userinfo {
         }
         
         $title = lang::translate('Profile page ');
-        $title.= $info['id'] . " ($info[screenname])";
+        $title.= $user_id. " ($info[screenname])";
         template::setTitle($title);
         
 
