@@ -110,10 +110,11 @@ class userinfo {
 
         $str = '';
         $info = $this->get($user_id);
-        if (empty($info)) {           
+        if (empty($info)) {  
+            $t_user = lang::translate('User');
             $str.= 
                     html::createLink("/userinfo/view/$user_id", 
-                            lang::translate('User') . " $user_id");
+                            $t_user . " $user_id");
         } else {
             $str.= 
                     html::createLink("/userinfo/view/$user_id", 
