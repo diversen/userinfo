@@ -3,11 +3,14 @@
 use diversen\gravatar;
 use diversen\filter\markdown;
 use diversen\valid;
+use diversen\template\assets;
+use diversen\template\meta;
+
 
 class userinfo {
     
     public function __construct () { 
-        template_assets::setInlineCss(config::getModulePath('userinfo') . "/assets.css");
+        assets::setInlineCss(config::getModulePath('userinfo') . "/assets.css");
     }
     
     /**
@@ -47,7 +50,7 @@ class userinfo {
      * @return array $row
      */
     public function get ($user_id) {
-        return db_q::select('userinfo')->filter('user_id =', $user_id)->fetchSingle();
+        return q::select('userinfo')->filter('user_id =', $user_id)->fetchSingle();
     }
     
     /**
@@ -195,7 +198,7 @@ class userinfo {
             return;
         }
         
-        template_meta::setMetaAll(lang::translate('Your profile'));
+        meta::setMetaAll(lang::translate('Your profile'));
         
         $str.=$this->getProfileEditLink() . "<br />";
         $account = user::getAccount($id);
