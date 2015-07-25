@@ -39,8 +39,7 @@ class userinfo {
         $str.= "<hr />";
         
         $logout = lang::translate('Logout');
-        $redirect = urlencode("/account/login/index");
-        $str.= $logout_link = html::createLink("/account/logout?redirect=$redirect", $logout);
+        $str.= $logout_link = html::createLink("/account/logout", $logout);
         return $str;
     }
     
