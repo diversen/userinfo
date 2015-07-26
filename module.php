@@ -10,7 +10,7 @@ use diversen\template\meta;
 class userinfo {
     
     public function __construct () { 
-        assets::setInlineCss(config::getModulePath('userinfo') . "/assets.css");
+        assets::setInlineCss(conf::getModulePath('userinfo') . "/assets.css");
     }
     
     /**
