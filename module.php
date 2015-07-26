@@ -221,7 +221,10 @@ class userinfo {
      */
     public function getHtml ($account, $info) {
         
+
+        $description = markdown::filter($info['description']);
         $info = html::specialEncode($info);
+
         $str = '';
         $str.= "<table class=\"account_profile\">";
         $str.= "<tr><td rowspan =\"3\">";
@@ -256,7 +259,7 @@ class userinfo {
         $str.= "<tr>";
         $str.= "</table>\n";
         $str.= "<table><tr><td>";
-        $str.= markdown::filter($info['description']);
+        $str.= $description;
         $str.= "</td></tr></table>";
         return $str;
     }
