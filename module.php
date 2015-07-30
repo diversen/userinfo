@@ -5,6 +5,15 @@ use diversen\filter\markdown;
 use diversen\valid;
 use diversen\template\assets;
 use diversen\template\meta;
+use diversen\conf;
+use diversen\html;
+use diversen\lang;
+use diversen\session;
+use diversen\user;
+use diversen\db\q;
+use diversen\moduleloader;
+use diversen\db;
+use diversen\http;
 
 
 class userinfo {
