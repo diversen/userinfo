@@ -1,5 +1,7 @@
 <?php
 
+use diversen\lang;
+
 $_INSTALL['VERSION'] = 3.01; 
 
 // This creates a main menu item in the database
