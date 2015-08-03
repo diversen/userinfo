@@ -1,20 +1,22 @@
 <?php
 
-use diversen\gravatar;
+use diversen\conf;
+use diversen\date;
+use diversen\db;
+use diversen\db\q;
 use diversen\filter\markdown;
-use diversen\valid;
+use diversen\gravatar;
+use diversen\html;
+use diversen\http;
+use diversen\lang;
+use diversen\moduleloader;
+use diversen\session;
+use diversen\template;
 use diversen\template\assets;
 use diversen\template\meta;
-use diversen\conf;
-use diversen\html;
-use diversen\lang;
-use diversen\session;
+use diversen\uri;
 use diversen\user;
-use diversen\db\q;
-use diversen\moduleloader;
-use diversen\db;
-use diversen\http;
-use diversen\date;
+use diversen\valid;
 
 
 class userinfo {
