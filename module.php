@@ -17,13 +17,14 @@ use diversen\template\meta;
 use diversen\uri;
 use diversen\user;
 use diversen\valid;
-
+use diversen\sendfile;
 
 class userinfo {
     
     public function __construct () { 
         assets::setInlineCss(conf::getModulePath('userinfo') . "/assets.css");
     }
+
     
     /**
      * get logout html
