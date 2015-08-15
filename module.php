@@ -1,5 +1,7 @@
 <?php
 
+namespace modules\userinfo;
+
 use diversen\conf;
 use diversen\date;
 use diversen\db;
@@ -19,7 +21,7 @@ use diversen\user;
 use diversen\valid;
 use diversen\sendfile;
 
-class userinfo {
+class module {
     
     public function __construct () { 
         assets::setInlineCss(conf::getModulePath('userinfo') . "/assets.css");
@@ -388,4 +390,4 @@ class userinfo {
     }
 }
 
-class userinfo_module extends userinfo {}
+class userinfo_module extends module {}
