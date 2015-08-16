@@ -19,7 +19,7 @@ use diversen\template\meta;
 use diversen\uri;
 use diversen\user;
 use diversen\valid;
-use diversen\sendfile;
+//use diversen\sendfile;
 
 class module {
     
@@ -101,7 +101,7 @@ class module {
         
         $str = '';
         $str.= '<div class="userinfo"> '; 
-        $str.= $this->getPreText();        
+        //$str.= $this->getPreText();        
         $str.= $this->getLink($account['id']);
         $str.= " ($text)";
         $str.= '</div>';
@@ -125,7 +125,8 @@ class module {
      */
     public function getLink ($user_id) {
 
-        $str = '';
+        
+        $str = '<i class="fa fa-user" title="' . lang::translate('User profile') . '"></i>&nbsp;';
         $info = $this->get($user_id);
         if (empty($info)) {  
             $t_user = lang::translate('User');
