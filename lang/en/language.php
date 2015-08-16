@@ -9,6 +9,7 @@ $LANG['Your screenname is not set yet'] = 'Your screenname is not set yet';
 $LANG['Your screenname is: '] = 'Your screenname is: ';
 $LANG['Logout'] = 'Logout';
 $LANG['Submitted by: '] = 'Submitted by: ';
+$LANG['User profile'] = 'User profile';
 $LANG['User'] = 'User';
 $LANG['Profile page '] = 'Profile page ';
 $LANG['This is your profile.'] = 'This is your profile.';
