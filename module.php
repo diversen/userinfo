@@ -19,7 +19,6 @@ use diversen\template\meta;
 use diversen\uri;
 use diversen\user;
 use diversen\valid;
-//use diversen\sendfile;
 
 class module {
     
@@ -296,6 +295,7 @@ class module {
             $values['screenname'] = 'John Doe';
         }
         
+        // Make sure user only edits his personal info
         $values['user_id'] = session::getUserId();
         $values = html::specialDecode($values);
         
@@ -307,7 +307,8 @@ class module {
     }
     
     /**
-     * edit action
+     * Edit action - check for correct user is
+     * only done in update
      * @return type
      */
     public function editAction () {
