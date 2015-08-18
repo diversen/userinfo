@@ -2,9 +2,6 @@
 
 use diversen\lang;
 
-$_INSTALL['VERSION'] = 5.01;
-
-// This creates a main menu item in the database
 $_INSTALL['MAIN_MENU_ITEM'] = array (
     'title' => lang::translate('Profile', null ,array ('no_translate' => true)),
     'url' => '/userinfo/index',
@@ -14,6 +11,5 @@ $_INSTALL['MAIN_MENU_ITEM'] = array (
     'auth' => 'user'
 );
 
-// This sets the public clone URL
 $_INSTALL['PUBLIC_CLONE_URL'] = "git://github.com/diversen/userinfo.git";
 $_INSTALL['PRIVATE_CLONE_URL'] = 'git@github.com:diversen/userinfo.git';
