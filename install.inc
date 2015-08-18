@@ -2,7 +2,7 @@
 
 use diversen\lang;
 
-$_INSTALL['VERSION'] = 4.01;
+$_INSTALL['VERSION'] = 5.01;
 
 // This creates a main menu item in the database
 $_INSTALL['MAIN_MENU_ITEM'] = array (
