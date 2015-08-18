@@ -331,6 +331,8 @@ class module {
         if (empty($info)) {
             $info = $this->getDefaultInfo();
         }
+        
+        echo html::getHeadline('Edit your profile');
         echo $this->form($info);
     }
     
