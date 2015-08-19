@@ -7,6 +7,7 @@ $LANG['Your screenname is not set yet'] = 'Din ScreenName er ikke indstillet end
 $LANG['Your screenname is: '] = 'Dit ScreenName er:';
 $LANG['Logout'] = 'Log ud';
 $LANG['Submitted by: '] = 'Indsendt af:';
+$LANG['User profile'] = 'Brugerprofil';
 $LANG['User'] = 'Bruger';
 $LANG['Profile page '] = 'Profilside';
 $LANG['This is your profile.'] = 'Dette er din profil.';

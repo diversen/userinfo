@@ -46,14 +46,14 @@ class module {
             $str.= lang::translate('Your screenname is not set yet');
         } else {
             $str.= lang::translate('Your screenname is: ');
-
         }
-        //$str.= "" . $this->getProfileLink($) . "<br />";
+        
         $str.= "<br /> " . $this->getLink($user_id);
         $str.= "<hr />";
         
         $logout = lang::translate('Logout');
         $str.= $logout_link = html::createLink("/account/logout", $logout);
+        
         return $str;
     }
     
@@ -99,8 +99,7 @@ class module {
     public function getProfile ($account, $text = '', $options = array ()) {
         
         $str = '';
-        $str.= '<div class="userinfo"> '; 
-        //$str.= $this->getPreText();        
+        $str.= '<div class="userinfo"> ';        
         $str.= $this->getLink($account['id']);
         $str.= " ($text)";
         $str.= '</div>';
@@ -240,8 +239,8 @@ class module {
         $description = markdown::filter($info['description']);
         $info = html::specialEncode($info);
 
-        $str = '';
-        $str.= "<table class=\"account_profile\">";
+        $str = '<div class="userinfo">';
+        $str.= "<table>";
         $str.= "<tr><td rowspan =\"3\">";
         $email = $account['email'];
         $size = 78;
@@ -276,6 +275,7 @@ class module {
         $str.= "<table><tr><td>";
         $str.= $description;
         $str.= "</td></tr></table>";
+        $str.="</div>";
         return $str;
     }
     
