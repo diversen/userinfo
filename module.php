@@ -34,9 +34,7 @@ class module {
     public function getLogoutHTML () {
 
         $user_id = session::getUserId();
-
         $user = user::getAccount($user_id);
-        
         $info = $this->get($user_id);
         
         $str = '';
@@ -119,7 +117,8 @@ class module {
     
     public function getAnonAccount($account) {
         $str = '';
-        $str.= html::createLink($account['homepage'], html::specialEncode($account['name']));
+        $options = array ('class' => 'module_link');
+        $str.= html::createLink($account['homepage'], html::specialEncode($account['name']), $options);
         return $str;
     }
     
@@ -148,17 +147,18 @@ class module {
             return lang::translate('Anonymous user');
         }
         
+        $options = array ('class' => 'module_link');
         $str = '<i class="fa fa-user" title="' . lang::translate('User profile') . '"></i>&nbsp;';
         $info = $this->get($user_id);
         if (empty($info)) {  
             $t_user = lang::translate('User');
             $str.= 
                     html::createLink("/userinfo/view/$user_id", 
-                            $t_user . " $user_id");
+                            $t_user . " $user_id", $options);
         } else {
             $str.= 
                     html::createLink("/userinfo/view/$user_id", 
-                            html::specialEncode($info['screenname']));
+                            html::specialEncode($info['screenname']), $options);
         }
         return $str;
     }
