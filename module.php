@@ -34,6 +34,7 @@ class module {
     public function getLogoutHTML () {
 
         $user_id = session::getUserId();
+
         $user = user::getAccount($user_id);
         
         $info = $this->get($user_id);
@@ -72,6 +73,10 @@ class module {
      */
     public function getProfileEditLink() {
         $user_id = session::getUserId();
+        if ($user_id == 0) {
+            return lang::translate("Anonymous user");
+        }
+        
         return html::createLink("/userinfo/edit/$user_id", 'Edit profile');
     }
     
@@ -97,12 +102,24 @@ class module {
      * @return string $str html profile 
      */
     public function getProfile ($account, $text = '', $options = array ()) {
+
+        if ($account['id'] == 0) {
+            $link = $this->getAnonAccount($account);
+        } else {
+            $link = $this->getLink($account['id']);
+        }
         
         $str = '';
         $str.= '<div class="userinfo"> ';        
-        $str.= $this->getLink($account['id']);
+        $str.= $link;
         $str.= " ($text)";
         $str.= '</div>';
+        return $str;
+    }
+    
+    public function getAnonAccount($account) {
+        $str = '';
+        $str.= html::createLink($account['homepage'], html::specialEncode($account['name']));
         return $str;
     }
     
@@ -112,6 +129,10 @@ class module {
      * @return type
      */
     public function getProfileLink ($account) {
+        
+        if ($account['id'] == 0) {
+            return lang::translate('Anonymous user');
+        }
         $link = $this->getLink($account['id']);
         return '<div class="userinfo">' . $link . '</div>';
     }
@@ -123,6 +144,9 @@ class module {
      */
     public function getLink ($user_id) {
 
+        if ($user_id == 0) {
+            return lang::translate('Anonymous user');
+        }
         
         $str = '<i class="fa fa-user" title="' . lang::translate('User profile') . '"></i>&nbsp;';
         $info = $this->get($user_id);
@@ -137,6 +161,15 @@ class module {
                             html::specialEncode($info['screenname']));
         }
         return $str;
+    }
+    
+        /**
+     * get profile link
+     * @param array $account
+     * @return string $html 
+     */
+    public function getLinkAnon ($user_id) {
+
     }
     
     /**
@@ -180,6 +213,9 @@ class module {
     }
     
     public function getAdminLink ($user_id) {
+        if ($user_id == 0) {
+            return lang::translate('Anonymous user');
+        }
         if (session::isAdmin()) {
             return html::createLink("/account/admin/edit/$user_id", "Admin: Edit");
         }
@@ -394,4 +430,4 @@ class module {
     }
 }
 
-class userinfo_module extends module {}
+//class userinfo_module extends module {}
