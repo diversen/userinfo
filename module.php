@@ -275,16 +275,21 @@ class module {
 
         $str = '<div class="userinfo">';
         $str.= "<table>";
-        $str.= "<tr><td rowspan =\"3\">";
+        $str.= "<tr>";
+        
+        $str.= "<td rowspan =\"3\">";
         $email = $account['email'];
         $size = 78;
         $str.= gravatar::getGravatarImg($email, $size);
         $str.= '</td>';
+        
         $str.= "<td>" . lang::translate('Screen name') . MENU_SUB_SEPARATOR_SEC . "</td>";
         $str.= "<td>" . $info['screenname'] . "</td>";
+        
         $str.= "</tr>";
-
         $str.= "<tr>";
+        
+
         $str.= "<td>" . lang::translate('Website') . MENU_SUB_SEPARATOR_SEC . "</td>";
         if (!empty($info['website'])) {
             $link = html::createLink($info['website'], $info['website']) ;
@@ -293,6 +298,7 @@ class module {
         }
         
         $str.= "<td>" . $link . "</td>";
+        
         $str.= "</tr>";
 
         if (empty($info['birthday'])) {
@@ -302,10 +308,13 @@ class module {
         }
 
         $str.= "<tr>";
+        
         $str.= "<td>" . lang::translate('Age') . "</td>\n";
         $str.= "<td>" . $birthday . "</td>\n";
-        $str.= "<tr>";
+        
+        $str.= "</tr>";
         $str.= "</table>\n";
+        
         $str.= "<table><tr><td>";
         $str.= $description;
         $str.= "</td></tr></table>";
