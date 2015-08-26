@@ -186,9 +186,7 @@ class module {
             moduleloader::setStatus(404);
             return;
         }
-        
-        
-        
+                
         if (empty($info)) {
             $info = $this->getDefaultInfo();
         }
@@ -281,7 +279,7 @@ class module {
         $email = $account['email'];
         $size = 78;
         $str.= gravatar::getGravatarImg($email, $size);
-
+        $str.= '</td>';
         $str.= "<td>" . lang::translate('Screen name') . MENU_SUB_SEPARATOR_SEC . "</td>";
         $str.= "<td>" . $info['screenname'] . "</td>";
         $str.= "</tr>";
