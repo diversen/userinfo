@@ -9,6 +9,7 @@ $LANG['Your screenname is not set yet'] = 'Your screenname is not set yet';
 $LANG['Your screenname is: '] = 'Your screenname is: ';
 $LANG['Logout'] = 'Logout';
 $LANG['Submitted by: '] = 'Submitted by: ';
+$LANG['Anonymous user'] = 'Anonymous user';
 $LANG['User profile'] = 'User profile';
 $LANG['User'] = 'User';
 $LANG['Profile page '] = 'Profile page ';
@@ -30,6 +31,7 @@ $LANG['Your website'] = 'Your website';
 $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm-dd';
 $LANG['Write a few words about yourself'] = 'Write a few words about yourself';
 $LANG['Update'] = 'Update';
+$LANG['Anonymous user'] = 'Anonymous user';
 // Translation of file modules/userinfo/install.inc
 
 $LANG['Profile'] = 'Profile';
