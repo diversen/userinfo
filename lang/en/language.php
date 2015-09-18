@@ -2,6 +2,9 @@
 
 $LANG = array();
 
+// Translation of file modules/userinfo/install.inc
+
+$LANG['Profile'] = 'Profile';
 // Translation of file modules/userinfo/module.php
 
 $LANG['You are logged in using email: '] = 'You are logged in using email: ';
@@ -32,6 +35,3 @@ $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm
 $LANG['Write a few words about yourself'] = 'Write a few words about yourself';
 $LANG['Update'] = 'Update';
 $LANG['Anonymous user'] = 'Anonymous user';
-// Translation of file modules/userinfo/install.inc
-
-$LANG['Profile'] = 'Profile';
