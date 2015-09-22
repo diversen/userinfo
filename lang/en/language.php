@@ -31,6 +31,9 @@ $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm
 $LANG['Write a few words about yourself'] = 'Write a few words about yourself';
 $LANG['Update'] = 'Update';
 $LANG['Anonymous user'] = 'Anonymous user';
+// Translation of file modules/userinfo/config.php
+
+$LANG['Email settings'] = 'Email settings';
 // Translation of file modules/userinfo/install.inc
 
 $LANG['Profile'] = 'Profile';
@@ -38,4 +41,3 @@ $LANG['Profile'] = 'Profile';
 
 $LANG['Your profile'] = 'Your profile';
 $LANG['Edit your profile'] = 'Edit your profile';
-$LANG['Email settings'] = 'Email settings';
