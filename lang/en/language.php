@@ -2,9 +2,6 @@
 
 $LANG = array();
 
-// Translation of file modules/userinfo/install.inc
-
-$LANG['Profile'] = 'Profile';
 // Translation of file modules/userinfo/module.php
 
 $LANG['You are logged in using email: '] = 'You are logged in using email: ';
@@ -16,7 +13,6 @@ $LANG['Anonymous user'] = 'Anonymous user';
 $LANG['User profile'] = 'User profile';
 $LANG['User'] = 'User';
 $LANG['Profile page '] = 'Profile page ';
-$LANG['This is your profile.'] = 'This is your profile.';
 $LANG['No bio yet'] = 'No bio yet';
 $LANG['Your profile'] = 'Your profile';
 $LANG['Your profile is empty!'] = 'Your profile is empty!';
@@ -35,3 +31,11 @@ $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm
 $LANG['Write a few words about yourself'] = 'Write a few words about yourself';
 $LANG['Update'] = 'Update';
 $LANG['Anonymous user'] = 'Anonymous user';
+// Translation of file modules/userinfo/install.inc
+
+$LANG['Profile'] = 'Profile';
+// Translation of file modules/userinfo/menu.inc
+
+$LANG['Your profile'] = 'Your profile';
+$LANG['Edit your profile'] = 'Edit your profile';
+$LANG['Email settings'] = 'Email settings';

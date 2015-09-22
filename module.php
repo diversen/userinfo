@@ -198,11 +198,7 @@ class module {
 
         $str = '';
         $str.= html::getHeadline('Profile');
-        
-        if ($account['id'] == session::getUserId()) {
-            $str.= lang::translate('This is your profile.') . ' ';
-            $str.=$this->getProfileEditLink() . "<br />";
-        }
+
         
         $str.= $this->getHtml($account, $info);
         $str.= $this->getAdminLink($account['id']);
@@ -246,8 +242,7 @@ class module {
         }
         
         meta::setMetaAll(lang::translate('Your profile'));
-        
-        $str.=$this->getProfileEditLink() . "<br />";
+
         $account = user::getAccount($id);
         $info = $this->get($id);
        
