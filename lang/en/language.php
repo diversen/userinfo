@@ -34,6 +34,9 @@ $LANG['Anonymous user'] = 'Anonymous user';
 // Translation of file modules/userinfo/config.php
 
 $LANG['Email settings'] = 'Email settings';
+// Translation of file modules/userinfo/config.php-dist
+
+$LANG['Email settings'] = 'Email settings';
 // Translation of file modules/userinfo/install.inc
 
 $LANG['Profile'] = 'Profile';
