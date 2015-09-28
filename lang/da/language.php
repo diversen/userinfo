@@ -28,6 +28,5 @@ $LANG['Your website'] = 'Din hjemmeside';
 $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Din fødselsdag. Formatet er åååå-mm-dd';
 $LANG['Write a few words about yourself'] = 'Skriv et par ord om dig selv';
 $LANG['Update'] = 'Opdatering';
-$LANG['Email settings'] = 'E-mail-indstillinger';
 $LANG['Profile'] = 'Profil';
 $LANG['Edit your profile'] = 'Rediger din profil';
