@@ -6,8 +6,7 @@ use diversen\conf;
 use diversen\date;
 use diversen\db;
 use diversen\db\q;
-use diversen\filter\markdown;
-use diversen\gravatar;
+
 use diversen\html;
 use diversen\http;
 use diversen\lang;
@@ -19,6 +18,15 @@ use diversen\template\meta;
 use diversen\uri;
 use diversen\user;
 use diversen\valid;
+use diversen\view;
+
+
+use modules\userinfo\views as userinfoViews;
+
+view::includeOverrideFunctions('userinfo', 'views.php');
+
+
+
 
 class module {
     
@@ -163,7 +171,7 @@ class module {
         return $str;
     }
     
-        /**
+    /**
      * get profile link
      * @param array $account
      * @return string $html 
@@ -200,7 +208,7 @@ class module {
         $str.= html::getHeadline('Profile');
 
         
-        $str.= $this->getHtml($account, $info);
+        $str.= userinfoViews::getHtml($account, $info);
         $str.= $this->getAdminLink($account['id']);
         echo $str;
 
@@ -252,70 +260,10 @@ class module {
             $info = $this->getDefaultInfo();
         }
         
-        $str.=$this->getHtml($account, $info);
+        $str.= userinfoViews::getHtml($account, $info);
         echo $str;
     }
 
-    /**
-     * display a users profile page
-     * @param array $account
-     * @param array $info
-     * @return string $html
-     */
-    public function getHtml ($account, $info) {
-        
-
-        $description = markdown::filter($info['description']);
-        $info = html::specialEncode($info);
-
-        $str = '<div class="userinfo">';
-        $str.= "<table>";
-        $str.= "<tr>";
-        
-        $str.= "<td rowspan =\"3\">";
-        $email = $account['email'];
-        $size = 78;
-        $str.= gravatar::getGravatarImg($email, $size);
-        $str.= '</td>';
-        
-        $str.= "<td>" . lang::translate('Screen name') . MENU_SUB_SEPARATOR_SEC . "</td>";
-        $str.= "<td>" . $info['screenname'] . "</td>";
-        
-        $str.= "</tr>";
-        $str.= "<tr>";
-        
-
-        $str.= "<td>" . lang::translate('Website') . MENU_SUB_SEPARATOR_SEC . "</td>";
-        if (!empty($info['website'])) {
-            $link = html::createLink($info['website'], $info['website']) ;
-        } else {
-            $link = lang::translate('No website');
-        }
-        
-        $str.= "<td>" . $link . "</td>";
-        
-        $str.= "</tr>";
-
-        if (empty($info['birthday'])) {
-            $birthday = lang::translate('Unknown');
-        } else {
-            $birthday = date::yearsOld($info['birthday']);
-        }
-
-        $str.= "<tr>";
-        
-        $str.= "<td>" . lang::translate('Age') . "</td>\n";
-        $str.= "<td>" . $birthday . "</td>\n";
-        
-        $str.= "</tr>";
-        $str.= "</table>\n";
-        
-        $str.= "<table><tr><td>";
-        $str.= $description;
-        $str.= "</td></tr></table>";
-        $str.="</div>";
-        return $str;
-    }
     
     /**
      * fileds to enter into db
