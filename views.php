@@ -41,7 +41,7 @@ class views {
         
         $str.= "<td>" . lang::translate('Website') . MENU_SUB_SEPARATOR_SEC . "</td>";
         if (!empty($info['website'])) {
-            $link = html::createLink($info['website'], $info['website']) ;
+            $link = html::createLink($info['website'], $info['website'], array ('rel' => 'nofollow')) ;
         } else {
             $link = lang::translate('No website');
         }
