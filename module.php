@@ -357,8 +357,10 @@ class module {
     }
     
     public function form ($values = array ()) {
-        moduleloader::includeTemplateCommon('jquery-markedit');
-        jquery_markedit_load_assets();   
+        if (!conf::getModuleIni('userinfo_disable_editor')) {
+            moduleloader::includeTemplateCommon('jquery-markedit');
+            jquery_markedit_load_assets();   
+        }
         
         $f = new html();
         $f->init($values, 'submit', true);
