@@ -38,6 +38,6 @@ $LANG['Edit your profile information'] = 'Edit your profile information';
 $LANG['Screen name'] = 'Screen name';
 $LANG['Your website'] = 'Your website';
 $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm-dd';
-$LANG['Write a few words about yourself'] = 'Write a few words about yourself';
+$LANG['Write a few words about yourself. You may use markdown.'] = 'Write a few words about yourself. You may use markdown.';
 $LANG['Update'] = 'Update';
 $LANG['Anonymous user'] = 'Anonymous user';

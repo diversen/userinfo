@@ -375,7 +375,7 @@ class module {
         
         $f->label('birthday', lang::translate('Your birthday. Format is yyyy-mm-dd'));
         $f->text('birthday');
-        $f->label('description', lang::translate('Write a few words about yourself'));
+        $f->label('description', lang::translate('Write a few words about yourself. You may use markdown.'));
         $f->textareaMed('description', null , array ('class' => 'markdown'));
         $f->submit('submit', lang::translate('Update'));
         echo $f->getStr();
