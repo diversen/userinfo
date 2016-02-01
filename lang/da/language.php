@@ -28,5 +28,5 @@ $LANG['You are not that old'] = 'Du er ikke så gammel';
 $LANG['Edit your profile information'] = 'Rediger dine profiloplysninger';
 $LANG['Your website'] = 'Din hjemmeside';
 $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Din fødselsdag. Formatet er åååå-mm-dd';
-$LANG['Write a few words about yourself'] = 'Skriv et par ord om dig selv';
+$LANG['Write a few words about yourself. You may use markdown.'] = 'Skriv et par ord om dig selv. Du må bruge markdown.';
 $LANG['Update'] = 'Opdatering';
