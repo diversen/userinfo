@@ -137,7 +137,7 @@ class module {
      */
     public function getProfileLink ($account) {
         
-        if ($account['id'] == 0) {
+        if (empty($account) || $account['id'] == 0) {
             return lang::translate('Anonymous user');
         }
         $link = $this->getLink($account['id']);
