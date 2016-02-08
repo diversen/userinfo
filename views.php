@@ -58,7 +58,7 @@ class views {
 
         $str.= "<tr>";
         
-        $str.= "<td>" . lang::translate('Age') . "</td>\n";
+        $str.= "<td>" . lang::translate('Age') . MENU_SUB_SEPARATOR_SEC . "</td>\n";
         $str.= "<td>" . $birthday . "</td>\n";
         
         $str.= "</tr>";
