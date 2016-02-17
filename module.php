@@ -232,7 +232,7 @@ class module {
             'screenname' => 'John Doe',
             'website' => '',
             'birthday' => '',
-            'description' => lang::translate('No bio yet'),
+            'description' => lang::translate('No bio yet') ,
             );
     }
     
@@ -318,7 +318,7 @@ class module {
             $info = $this->getDefaultInfo();
         }
         
-        echo html::getHeadline('Edit your profile');
+        echo html::getHeadline(lang::translate('Edit your profile'));
         echo $this->form($info);
     }
     

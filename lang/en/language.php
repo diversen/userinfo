@@ -31,6 +31,7 @@ $LANG['No bio yet'] = 'No bio yet';
 $LANG['Your profile'] = 'Your profile';
 $LANG['Your profile is empty!'] = 'Your profile is empty!';
 $LANG['Your profile has been updated'] = 'Your profile has been updated';
+$LANG['Edit your profile'] = 'Edit your profile';
 $LANG['Not a valid website'] = 'Not a valid website';
 $LANG['Not a valid birthday'] = 'Not a valid birthday';
 $LANG['You are not that old'] = 'You are not that old';
