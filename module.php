@@ -6,7 +6,6 @@ use diversen\conf;
 use diversen\date;
 use diversen\db;
 use diversen\db\q;
-
 use diversen\html;
 use diversen\http;
 use diversen\lang;
@@ -20,7 +19,6 @@ use diversen\user;
 use diversen\valid;
 use diversen\view;
 
-
 use modules\userinfo\views as userinfoViews;
 
 view::includeOverrideFunctions('userinfo', 'views.php');
@@ -30,13 +28,53 @@ view::includeOverrideFunctions('userinfo', 'views.php');
 
 class module {
     
+        
+    /**
+     * Var holding errors
+     * @var array $errors
+     */
+    public $errors = array ();
+    
+    /**
+     * Var holding pretext - text after user link
+     * @var type 
+     */
+    public $preText = null;
+    
+    /**
+     * Set pretext
+     * @param string $text
+     */
+    public function setPreText ($text) {
+        $this->preText = $text;
+    } 
+    
+    /**
+     * Fields to enter into DB
+     * @var array $array
+     */
+    public $fields = array ('screenname', 'website', 'birthday', 'description');
+
+    /**
+     * Construct. Set CSS
+     */
     public function __construct () { 
         assets::setInlineCss(conf::getModulePath('userinfo') . "/assets.css");
     }
-
+        
+    /**
+     * Get pretext
+     * @return string $str
+     */
+    public function getPreText() {
+        if (!$this->preText) {
+            return lang::translate('Submitted by: ');
+        }
+        return $this->preText;
+    }
     
     /**
-     * get logout html
+     * Get logout html
      * @return string $html
      */
     public function getLogoutHTML () {
@@ -65,7 +103,7 @@ class module {
     }
     
     /**
-     * get profile based on account id
+     * Get profile row
      * @param int $user_id
      * @return array $row
      */
@@ -74,7 +112,7 @@ class module {
     }
     
     /**
-     * get profile edit link
+     * Get a profile edit link
      * @return string $html
      */
     public function getProfileEditLink() {
@@ -85,22 +123,10 @@ class module {
         
         return html::createLink("/userinfo/edit/$user_id", 'Edit profile');
     }
-    
-    public static $preText = null;
-    public function setPreText ($text) {
-        self::$preText = $text;
-    } 
-    
-    public function getPreText() {
-        if (!self::$preText) {
-            return lang::translate('Submitted by: ');
-        }
-        return self::$preText;
-    }
+
     
     /**
-     * 
-     * get profile link from account array with text and link
+     * Get profile link from account array with text and link
      * @param array $account
      *              $user[id] = 0 if anonymous submission
      * @param string $text text to notice smething about the user
@@ -123,6 +149,11 @@ class module {
         return $str;
     }
     
+    /**
+     * Get anon account link
+     * @param array $account
+     * @return string $str html
+     */
     public function getAnonAccount($account) {
         $str = '';
         $options = array ('class' => 'module_link');
@@ -131,9 +162,9 @@ class module {
     }
     
     /**
-     * get profile link without text from account array
-     * @param type $account
-     * @return type
+     * Get profile link without text from account array
+     * @param array $account
+     * @return string $html link
      */
     public function getProfileLink ($account) {
         
@@ -145,8 +176,8 @@ class module {
     }
     
     /**
-     * get profile link
-     * @param array $account
+     * Get profile link
+     * @param int $user_id
      * @return string $html 
      */
     public function getLink ($user_id) {
@@ -172,15 +203,6 @@ class module {
     }
     
     /**
-     * get profile link
-     * @param array $account
-     * @return string $html 
-     */
-    public function getLinkAnon ($user_id) {
-
-    }
-    
-    /**
      * view action
      * @return void
      */
@@ -202,29 +224,31 @@ class module {
         $title = lang::translate('Profile page ');
         $title.= $user_id. " ($info[screenname])";
         template::setTitle($title);
-        
 
         $str = '';
         $str.= html::getHeadline('Profile');
-
-        
         $str.= userinfoViews::getHtml($account, $info);
         $str.= $this->getAdminLink($account['id']);
         echo $str;
 
     }
     
+    /**
+     * Get a link to edit user if in admin mode
+     * @param int $user_id
+     * @return string $html
+     */
     public function getAdminLink ($user_id) {
         if ($user_id == 0) {
             return lang::translate('Anonymous user');
         }
         if (session::isAdmin()) {
-            return html::createLink("/account/admin/edit/$user_id", "Admin: Edit");
+            return html::createLink("/account/admin/edit/$user_id", "Admin: Edit user");
         }
     }
     
     /**
-     * default profile
+     * Default profile
      * @return array $profile
      */
     public function getDefaultInfo () {
@@ -237,8 +261,8 @@ class module {
     }
     
     /**
-     * intex action
-     * @return type
+     * /userinfo/index action
+     * @return void
      */
     public function indexAction () {
         $str = '';
@@ -266,13 +290,7 @@ class module {
 
     
     /**
-     * fileds to enter into db
-     * @var array $array
-     */
-    public $fields = array ('screenname', 'website', 'birthday', 'description');
-    
-    /**
-     *  updat or add to database
+     * Update or add to database
      * @return int $res
      */
     public function update () {
@@ -321,16 +339,11 @@ class module {
         echo html::getHeadline(lang::translate('Edit your profile'));
         echo $this->form($info);
     }
+
     
     /**
-     * var holding errors
-     * @var array $errors
-     */
-    public $errors = array ();
-    
-    /**
-     * validate form submission
-     * @return type
+     * Validate form submission and set errors
+     * @return void
      */
     public function validate () {
         
@@ -356,6 +369,10 @@ class module {
         }
     }
     
+    /**
+     * uUserinfo Form
+     * @param array $values
+     */
     public function form ($values = array ()) {
         
         $f = new html();
@@ -377,5 +394,3 @@ class module {
         echo $f->getStr();
     }
 }
-
-//class userinfo_module extends module {}
