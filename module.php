@@ -142,10 +142,10 @@ class module {
         }
         
         $str = '';
-        $str.= '<div class="userinfo"> ';        
+        $str.= '<span class="userinfo"> ';     
         $str.= $link;
         $str.= " ($text)";
-        $str.= '</div>';
+        $str.= '</span>';
         return $str;
     }
     
