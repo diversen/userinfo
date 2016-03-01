@@ -336,7 +336,7 @@ class module {
             $info = $this->getDefaultInfo();
         }
         
-        echo html::getHeadline(lang::translate('Edit your profile'));
+        // echo html::getHeadline(lang::translate('Edit your profile'));
         echo $this->form($info);
     }
 
