@@ -2,23 +2,19 @@
 
 $LANG = array();
 
-// Translation of file modules/userinfo/install.inc
-
-$LANG['Profile'] = 'Profile';
-// Translation of file modules/userinfo/views.php
-
-$LANG['Screen name'] = 'Screen name';
-$LANG['Website'] = 'Website';
-$LANG['No website'] = 'No website';
-$LANG['Unknown'] = 'Unknown';
-$LANG['Age'] = 'Age';
 // Translation of file modules/userinfo/config.php
 
 $LANG['Usage'] = 'Usage';
+
+// Translation of file modules/userinfo/install.inc
+
+$LANG['Profile'] = 'Profile';
+
 // Translation of file modules/userinfo/menu.inc
 
 $LANG['Your profile'] = 'Your profile';
 $LANG['Edit your profile'] = 'Edit your profile';
+
 // Translation of file modules/userinfo/module.php
 
 $LANG['Submitted by: '] = 'Submitted by: ';
@@ -45,3 +41,11 @@ $LANG['Your birthday. Format is yyyy-mm-dd'] = 'Your birthday. Format is yyyy-mm
 $LANG['Write a few words about yourself. You may use markdown.'] = 'Write a few words about yourself. You may use markdown.';
 $LANG['Update'] = 'Update';
 $LANG['Anonymous user'] = 'Anonymous user';
+
+// Translation of file modules/userinfo/views.php
+
+$LANG['Screen name'] = 'Screen name';
+$LANG['Website'] = 'Website';
+$LANG['No website'] = 'No website';
+$LANG['Unknown'] = 'Unknown';
+$LANG['Age'] = 'Age';
