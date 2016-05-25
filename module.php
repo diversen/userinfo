@@ -142,7 +142,7 @@ class module {
         }
         
         $str = '';
-        $str.= '<span class="userinfo"> ';     
+        $str.= '<span class="uk-article-meta"> ';     
         $str.= $link;
         $str.= " ($text)";
         $str.= '</span>';
