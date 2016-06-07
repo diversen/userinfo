@@ -23,9 +23,6 @@ use modules\userinfo\views as userinfoViews;
 
 view::includeOverrideFunctions('userinfo', 'views.php');
 
-
-
-
 class module {
     
         
