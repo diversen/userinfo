@@ -5,6 +5,7 @@ $LANG = array();
 // Translation of file modules/userinfo/config.php
 
 $LANG['Usage'] = 'Usage';
+$LANG['Payment'] = 'Payment';
 
 // Translation of file modules/userinfo/install.inc
 
