@@ -3,6 +3,7 @@
 $LANG = array();
 
 $LANG['Usage'] = 'Forbrug';
+$LANG['Total'] = 'Total';
 $LANG['Payment'] = 'Betaling';
 $LANG['Profile'] = 'Profil';
 $LANG['Your profile'] = 'Din profil';
