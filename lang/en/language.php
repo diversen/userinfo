@@ -6,6 +6,7 @@ $LANG = array();
 
 $LANG['Usage'] = 'Usage';
 $LANG['Total'] = 'Total';
+$LANG['Max usage'] = 'Max usage';
 $LANG['Payment'] = 'Payment';
 
 // Translation of file modules/userinfo/install.inc
