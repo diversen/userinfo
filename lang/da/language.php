@@ -14,6 +14,7 @@ $LANG['You are logged in using email: '] = 'Du er logget ind via e-mail:';
 $LANG['Your screenname is not set yet'] = 'Din ScreenName er ikke indstillet endnu';
 $LANG['Your screenname is: '] = 'Dit ScreenName er:';
 $LANG['Logout'] = 'Log ud';
+$LANG['Logout from all devices'] = 'Log ud fra alle enheder';
 $LANG['Anonymous user'] = 'Anonym bruger';
 $LANG['User profile'] = 'Brugerprofil';
 $LANG['User'] = 'Bruger';

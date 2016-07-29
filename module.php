@@ -95,6 +95,10 @@ class module {
         
         $logout = lang::translate('Logout');
         $str.= $logout_link = html::createLink("/account/logout", $logout);
+        $str.= MENU_SUB_SEPARATOR;
+        
+        $logout_all = lang::translate('Logout from all devices');
+        $str.= $logout_link = html::createLink("/account/logoutall", $logout_all);
         
         return $str;
     }

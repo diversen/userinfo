@@ -25,6 +25,7 @@ $LANG['You are logged in using email: '] = 'You are logged in using email: ';
 $LANG['Your screenname is not set yet'] = 'Your screenname is not set yet';
 $LANG['Your screenname is: '] = 'Your screenname is: ';
 $LANG['Logout'] = 'Logout';
+$LANG['Logout from all devices'] = 'Logout from all devices';
 $LANG['Anonymous user'] = 'Anonymous user';
 $LANG['User profile'] = 'User profile';
 $LANG['User'] = 'User';
