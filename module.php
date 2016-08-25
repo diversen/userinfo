@@ -136,11 +136,17 @@ class module {
      */
     public function getProfile ($account, $text = '', $options = array ()) {
 
-        if ($account['id'] == 0) {
+        if (empty($account)) {
+            $link = lang::translate('Anonymous user');
+        } else if ($account['id'] == 0) {
             $link = $this->getAnonAccount($account);
         } else {
             $link = $this->getLink($account['id']);
         }
+        
+        
+        
+
         
         $str = '';
         $str.= '<span class="uk-article-meta"> ';     
