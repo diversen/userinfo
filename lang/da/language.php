@@ -2,10 +2,6 @@
 
 $LANG = array();
 
-$LANG['Usage'] = 'Forbrug';
-$LANG['Total'] = 'Total';
-$LANG['Max usage'] = 'Max forbrug';
-$LANG['Payment'] = 'Betaling';
 $LANG['Profile'] = 'Profil';
 $LANG['Your profile'] = 'Din profil';
 $LANG['Edit your profile'] = 'Rediger din profil';
