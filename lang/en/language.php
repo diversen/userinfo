@@ -2,6 +2,13 @@
 
 $LANG = array();
 
+// Translation of file modules/userinfo/config.php
+
+$LANG['Usage'] = 'Usage';
+$LANG['Total'] = 'Total';
+$LANG['Max usage'] = 'Max usage';
+$LANG['Payment'] = 'Payment';
+
 // Translation of file modules/userinfo/install.inc
 
 $LANG['Profile'] = 'Profile';
