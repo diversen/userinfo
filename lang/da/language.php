@@ -2,7 +2,7 @@
 
 $LANG = array();
 
-$LANG['Usage'] = 'Anvendelse';
+$LANG['Usage'] = 'Forbrug';
 $LANG['Total'] = 'Total';
 $LANG['Max usage'] = 'Max forbrug';
 $LANG['Payment'] = 'Betaling';
